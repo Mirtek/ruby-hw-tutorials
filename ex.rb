@@ -15,5 +15,6 @@ items = DB[:items] # Create a dataset
 items.insert(:text => 'Hello world', :count => 3)
 
 get "/" do
-	"HOLLY SHIT HELLO FROM DB - #{items.select_group(:text)[:id => 1]} "
+	@message = items.select(:text)[:id => 1][:text] # нормальное хелло из дб.
+	"HOLLY SHIT HELLO FROM DB - #{@message}"
 end
